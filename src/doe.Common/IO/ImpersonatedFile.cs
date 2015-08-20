@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using doe.Common.Diagnostic;
+using doe.Common.Diagnostics;
 using doe.Common.Security.Impersonation;
 
 namespace doe.Common.IO
@@ -24,13 +24,20 @@ namespace doe.Common.IO
         public static List<FileInfo> GetFiles(string path, DomainUser user, 
             bool recursive, bool debug = false)
         {
-            // ReSharper disable once UnusedVariable
-            using (
-                var impersonation = new Impersonation(user.Domain, user.Name,
-                    user.Pwd, ImpersonationLevel.Delegation))
-            {
-                return GetFiles(path, recursive, debug);
-            }
+          if (string.IsNullOrEmpty(user.Domain)
+            || string.IsNullOrEmpty(user.Name)
+            || string.IsNullOrEmpty(user.Pwd))
+          {
+            return GetFiles(path, recursive, debug);
+          }
+          
+          // ReSharper disable once UnusedVariable
+          using (
+            var impersonation = new Impersonation(user.Domain, user.Name,
+              user.Pwd, ImpersonationLevel.Delegation))
+          {
+            return GetFiles(path, recursive, debug);
+          }
         }
 
         private static List<FileInfo> GetFiles(string path,
@@ -40,12 +47,9 @@ namespace doe.Common.IO
 
             try
             {
-                foreach (var file in Directory.GetFiles(path))
-                {
-                    fileList.Add(new FileInfo(file));
-                }
+              fileList.AddRange(Directory.GetFiles(path).Select(file => new FileInfo(file)));
 
-                if (recursive)
+              if (recursive)
                 {
                     foreach (var dir in Directory.GetDirectories(path))
                     {
@@ -209,7 +213,7 @@ namespace doe.Common.IO
                     Directory.CreateDirectory(destination);
                     if (debug)
                     {
-                        Log.Info(String.Format("cdir {0}", destination));
+                        Log.Info($"cdir {destination}");
                     }
                 }
 
@@ -225,7 +229,7 @@ namespace doe.Common.IO
                 {
                     if (debug)
                     {
-                        Log.Warning(String.Format("file already exists {0}", dst));
+                        Log.Warning($"file already exists {dst}");
                     }
                     result = new FileOperationResult(dst, FileOperation.Copy, false, "file already exists");
                 }
@@ -250,7 +254,7 @@ namespace doe.Common.IO
                     Directory.CreateDirectory(destination);
                     if (debug)
                     {
-                        Log.Info(String.Format("cdir {0}", destination));
+                        Log.Info($"cdir {destination}");
                     }
                 }
 
@@ -271,7 +275,7 @@ namespace doe.Common.IO
                 {
                     if (debug)
                     {
-                        Log.Warning(String.Format("file already exists {0}", dst));
+                        Log.Warning($"file already exists {dst}");
                     }
                     result = new FileOperationResult(dst, FileOperation.Move, false, "file already exists");
                 }

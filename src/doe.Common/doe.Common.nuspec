@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>DeleteOnError.Common</id>
+    <version>0.1.0.0</version>
+    <authors>Silvio Katzmann</authors>
+    <owners>Silvio Katzmann</owners>
+    <licenseUrl>https://github.com/skat-delayed/Common/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/skat-delayed/Common</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>delete on error common library</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags></tags>
+    <language>en-US</language>
+  </metadata>
+</package>

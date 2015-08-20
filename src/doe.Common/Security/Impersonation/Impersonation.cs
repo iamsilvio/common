@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Security.Principal;
-using doe.Common.Diagnostic;
+using doe.Common.Diagnostics;
 
 namespace doe.Common.Security.Impersonation
 {
@@ -125,10 +125,9 @@ namespace doe.Common.Security.Impersonation
         /// </summary>
         public void Dispose()
         {
-            if (_context != null)
-                _context.Undo();
+          _context?.Undo();
 
-            if (_token != IntPtr.Zero)
+          if (_token != IntPtr.Zero)
                 CloseHandle(_token);
 
             if (_tokenDuplicate != IntPtr.Zero)
@@ -150,13 +149,13 @@ namespace doe.Common.Security.Impersonation
                 }
                 else
                 {
-                    Log.Warning(string.Format("{0} {1} {2}", _domain, _username, _password));
+                    Log.Warning($"{_domain} {_username} {_password}");
                     Log.Error(new SecurityException("Unable to impersonate the user."));
                 }
             }
             else
             {
-                Log.Warning(string.Format("{0} {1} {2}", _domain, _username, _password));
+                Log.Warning($"{_domain} {_username} {_password}");
                 Log.Error(new SecurityException("The login details you have entered were incorrect."));
             }
         }

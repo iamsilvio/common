@@ -80,8 +80,7 @@ namespace doe.Common.IO
 
         public override string ToString()
         {
-            return string.Format("{0} {1} {2} {3}", FileOperation, Succeeded ? "succeded" : "failed", FileName,
-                Message ?? "");
+            return $"{FileOperation} {(Succeeded ? "succeded" : "failed")} {FileName} {Message ?? ""}";
         }
     }
 }

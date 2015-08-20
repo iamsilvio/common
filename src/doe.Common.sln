@@ -1,9 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "doe.Common", "doe.Common\doe.Common.csproj", "{2776BCF2-3F63-4B6E-B94A-93856B88675F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "meta", "meta", "{7CE87540-3A2A-4A92-9EE4-486C37AC6DA8}"
+	ProjectSection(SolutionItems) = preProject
+		doe.Common\doe.Common.nuspec = doe.Common\doe.Common.nuspec
+		..\LICENSE = ..\LICENSE
+		..\readme = ..\readme
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
