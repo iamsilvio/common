@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace doe.Common.Diagnostics
+namespace deleteonerror.Common.Diagnostics
 {
   public static class Log
   {
@@ -81,7 +81,7 @@ namespace doe.Common.Diagnostics
       var stackTrace = new StackTrace();
       WriteLog(message, "debug",
           stackTrace.GetFrame(1).GetMethod().Module.Name,
-          stackTrace.GetFrame(1).GetMethod().ReflectedType.FullName,
+          stackTrace.GetFrame(1).GetMethod().ReflectedType?.FullName,
           stackTrace.GetFrame(1).GetMethod().Name);
 #endif
     }

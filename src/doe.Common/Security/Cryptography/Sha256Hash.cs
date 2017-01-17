@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace doe.Common.Security.Cryptography
+namespace deleteonerror.Common.Security.Cryptography
 {
     public class Sha256Hash
     {

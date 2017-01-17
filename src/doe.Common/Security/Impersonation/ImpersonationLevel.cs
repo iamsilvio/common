@@ -1,4 +1,4 @@
-﻿namespace doe.Common.Security.Impersonation
+﻿namespace deleteonerror.Common.Security.Impersonation
 {
     /// <summary>
     ///     Defines the possible security levels for impersonation.

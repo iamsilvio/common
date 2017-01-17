@@ -1,4 +1,4 @@
-﻿namespace doe.Common.IO
+﻿namespace deleteonerror.Common.IO
 {
     /// <summary>
     /// </summary>

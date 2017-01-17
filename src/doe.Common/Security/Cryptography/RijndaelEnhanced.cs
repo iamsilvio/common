@@ -3,7 +3,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace doe.Common.Security.Cryptography
+namespace deleteonerror.Common.Security.Cryptography
 {
     /// <summary>
     /// This class uses a symmetric key algorithm (Rijndael/AES) to encrypt and
@@ -318,8 +318,7 @@ namespace doe.Common.Security.Cryptography
         public byte[] DecryptToBytes(byte[] cipherTextBytes)
         {
             int decryptedByteCount;
-            var saltLen = 0;
-            var decryptedBytes = new byte[cipherTextBytes.Length];
+          var decryptedBytes = new byte[cipherTextBytes.Length];
 
             using (var memoryStream = new MemoryStream(cipherTextBytes))
             {
@@ -342,10 +341,10 @@ namespace doe.Common.Security.Cryptography
             // plain text data.
             //if (_maxSaltLen > 0 && _maxSaltLen >= _minSaltLen)
             //{
-                saltLen = (decryptedBytes[0] & 0x03) |
-                          (decryptedBytes[1] & 0x0c) |
-                          (decryptedBytes[2] & 0x30) |
-                          (decryptedBytes[3] & 0xc0);
+                var saltLen = (decryptedBytes[0] & 0x03) |
+                              (decryptedBytes[1] & 0x0c) |
+                              (decryptedBytes[2] & 0x30) |
+                              (decryptedBytes[3] & 0xc0);
             //}
 
             // Allocate the byte array to hold the original plain text (without salt).

@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace doe.Common.Extensions
+namespace deleteonerror.Common.Extensions
 {
   public static class StringArrayExtension
   {

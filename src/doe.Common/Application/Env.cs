@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Reflection;
 
-namespace doe.Common.Application
+namespace deleteonerror.Common.Application
 {
   public class Env
   {

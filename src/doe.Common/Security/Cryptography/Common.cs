@@ -1,7 +1,7 @@
 using System;
 using System.Security.Cryptography;
 
-namespace doe.Common.Security.Cryptography
+namespace deleteonerror.Common.Security.Cryptography
 {
     public class Common
     {

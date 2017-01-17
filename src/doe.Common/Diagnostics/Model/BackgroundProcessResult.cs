@@ -1,4 +1,4 @@
-﻿namespace doe.Common.Diagnostics.Model
+﻿namespace deleteonerror.Common.Diagnostics.Model
 {
   public class BackgroundProcessResult
   {

@@ -1,7 +1,7 @@
 using System.IO;
-using doe.Common.Security.Impersonation;
+using deleteonerror.Common.Security.Impersonation;
 
-namespace doe.Common.Extensions
+namespace deleteonerror.Common.Extensions
 {
     /// <summary>
     /// <see cref="System.IO.FileInfo"/> extensions to provide impersonation features

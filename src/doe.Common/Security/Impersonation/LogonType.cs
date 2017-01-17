@@ -1,4 +1,4 @@
-﻿namespace doe.Common.Security.Impersonation
+﻿namespace deleteonerror.Common.Security.Impersonation
 {
     public enum LogonType
     {

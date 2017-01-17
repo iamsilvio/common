@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 using System.Security;
 using Microsoft.Win32.SafeHandles;
 
-namespace doe.Common.Security.Impersonation
+namespace deleteonerror.Common.Security.Impersonation
 {
     public sealed class SafeTokenHandle : SafeHandleZeroOrMinusOneIsInvalid
     {

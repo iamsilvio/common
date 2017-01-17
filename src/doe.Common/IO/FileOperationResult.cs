@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace doe.Common.IO
+namespace deleteonerror.Common.IO
 {
     public class FileOperationResult
     {

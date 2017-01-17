@@ -2,9 +2,9 @@
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Security.Principal;
-using doe.Common.Diagnostics;
+using deleteonerror.Common.Diagnostics;
 
-namespace doe.Common.Security.Impersonation
+namespace deleteonerror.Common.Security.Impersonation
 {
     /// <summary>
     ///     Provides a mechanism for impersonating a user.  This is intended to be disposable, and

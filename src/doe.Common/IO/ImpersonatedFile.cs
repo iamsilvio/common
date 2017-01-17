@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using doe.Common.Diagnostics;
-using doe.Common.Security.Impersonation;
+using deleteonerror.Common.Diagnostics;
+using deleteonerror.Common.Security.Impersonation;
 
-namespace doe.Common.IO
+namespace deleteonerror.Common.IO
 {
     /// <summary>
     /// Wrapper around <seealso cref="System.IO.File"/>  
@@ -28,7 +28,7 @@ namespace doe.Common.IO
             || string.IsNullOrEmpty(user.Name)
             || string.IsNullOrEmpty(user.Pwd))
           {
-            return GetFiles(path, recursive, debug);
+            return GetFiles(path, recursive);
           }
           
           // ReSharper disable once UnusedVariable
@@ -36,12 +36,12 @@ namespace doe.Common.IO
             var impersonation = new Impersonation(user.Domain, user.Name,
               user.Pwd, ImpersonationLevel.Delegation))
           {
-            return GetFiles(path, recursive, debug);
+            return GetFiles(path, recursive);
           }
         }
 
         private static List<FileInfo> GetFiles(string path,
-            bool recursive, bool debug = false)
+            bool recursive)
         {
             var fileList = new List<FileInfo>();
 
@@ -53,7 +53,7 @@ namespace doe.Common.IO
                 {
                     foreach (var dir in Directory.GetDirectories(path))
                     {
-                        fileList.AddRange(GetFiles(dir, true, debug));
+                        fileList.AddRange(GetFiles(dir, true));
                     }
                 }
             }
@@ -202,7 +202,7 @@ namespace doe.Common.IO
         }
 
 
-        private static FileOperationResult CopyFile(FileInfo sourceFile, string destination, bool overwrite,
+        private static FileOperationResult CopyFile(FileSystemInfo sourceFile, string destination, bool overwrite,
             bool debug = false)
         {
             FileOperationResult result;
@@ -243,7 +243,7 @@ namespace doe.Common.IO
             return result;
         }
 
-        private static FileOperationResult MoveFile(FileInfo sourceFile, string destination, bool overwrite,
+        private static FileOperationResult MoveFile(FileSystemInfo sourceFile, string destination, bool overwrite,
             bool debug = false)
         {
             FileOperationResult result;

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
-using doe.Common.Diagnostics.Model;
+using deleteonerror.Common.Diagnostics.Model;
 
-namespace doe.Common.Diagnostics
+namespace deleteonerror.Common.Diagnostics
 {
   public class BackgroundProcess
   {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace doe.Common.Extensions
+namespace deleteonerror.Common.Extensions
 {
   /// <summary>
   /// 
